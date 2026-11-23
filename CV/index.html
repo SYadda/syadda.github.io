@@ -1,33 +1,533 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CV_Yuhang_Dong</title>
-  <style>
-    html, body {
-      margin: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
-    object {
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
-    p {
-      padding: 20px;
-      font-family: sans-serif;
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Curriculum vitae of Yuhang Dong, M.Sc. Data Science student at FAU. Education, research, work experience and selected projects.">
+<meta name="theme-color" content="#eef3ee">
+<title>Yuhang Dong | Curriculum Vitae</title>
+<link rel="alternate" hreflang="en" href="https://syadda.github.io/CV/?lang=en">
+<link rel="alternate" hreflang="zh-CN" href="https://syadda.github.io/CV/?lang=zh">
+<link rel="alternate" hreflang="de" href="https://syadda.github.io/CV/?lang=de">
+<link rel="alternate" hreflang="x-default" href="https://syadda.github.io/CV/">
+<style>
+:root {
+  color-scheme: light;
+  --ink: #202b28;
+  --muted: #52625b;
+  --accent: #185743;
+  --line: #d7e1db;
+  --paper: #fffefb;
+  --wash: #eef3ee;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+  color: var(--ink);
+  background: var(--wash);
+}
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; }
+[hidden] { display: none !important; }
+a { color: var(--accent); text-underline-offset: .19em; }
+a:hover { color: #103c2d; }
+a:focus-visible, button:focus-visible { outline: 2px solid #23684f; outline-offset: 3px; }
+.shell { width: min(65rem, calc(100% - 48px)); margin-inline: auto; }
+.toolbar {
+  min-height: 4.5rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+}
+.language-picker { display: flex; gap: .25rem; flex-wrap: wrap; }
+.language-picker a, .print-button {
+  font: inherit;
+  font-size: .875rem;
+  font-weight: 600;
+  background: transparent;
+  text-decoration: none;
+  color: var(--accent);
+  padding: .53rem .72rem;
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+.language-picker a:hover, .print-button:hover { background: #e2ebe3; }
+.language-picker a[aria-current="true"] { background: #dcebe1; border-color: #9ebaaa; color: #103d2e; }
+.print-button { cursor: pointer; border-color: #b6c8be; }
+.resume {
+  margin-bottom: 3rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-top: 5px solid var(--accent);
+  border-radius: 6px;
+  box-shadow: 0 12px 38px #213c2510;
+}
+.hero { padding: clamp(1.5rem, 5vw, 3.1rem) clamp(1.3rem, 5vw, 3.25rem) 1.65rem; border-bottom: 1px solid var(--line); }
+h1, h2, h3, p, dl, dd { margin: 0; }
+h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.6rem, 7vw, 4.65rem);
+  letter-spacing: -.045em;
+  font-weight: 500;
+  line-height: 1.04;
+}
+.role { font-size: clamp(1.08rem, 2.7vw, 1.4rem); font-weight: 650; color: var(--accent); margin-top: .6rem; }
+.location { margin-top: .3rem; font-size: .9375rem; color: var(--muted); }
+.contact, .entry-links { display: flex; flex-wrap: wrap; column-gap: 1rem; row-gap: .35rem; }
+.contact { margin-top: 1.1rem; }
+.contact a { font-size: .9375rem; font-weight: 600; }
+.columns { display: grid; grid-template-columns: minmax(0, 1fr) minmax(13rem, 27%); }
+.core { padding: 1.9rem clamp(1.3rem, 5vw, 3.25rem) 2.4rem; min-width: 0; }
+.sidebar { padding: 1.9rem clamp(1rem, 3vw, 1.9rem) 2.4rem; background: #f4f7f3; border-left: 1px solid var(--line); }
+.section + .section { margin-top: 1.85rem; }
+h2 { font-size: 1.15rem; letter-spacing: -.012em; color: var(--accent); border-bottom: 1px solid var(--line); padding-bottom: .45rem; margin-bottom: .86rem; }
+.entry + .entry { margin-top: 1.16rem; }
+.entry-header { display: flex; align-items: baseline; justify-content: space-between; gap: .3rem .8rem; flex-wrap: wrap; }
+h3 { font-size: 1rem; line-height: 1.35; }
+.period { font-size: .84rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.organization { font-size: .92rem; color: var(--muted); margin-top: .18rem; }
+.detail { font-size: 1rem; line-height: 1.57; margin-top: .36rem; }
+.entry-links { margin-top: .37rem; font-size: .875rem; }
+dt { font-size: .9rem; font-weight: 650; }
+dd { font-size: .92rem; line-height: 1.5; color: var(--muted); }
+dl div + div { margin-top: .7rem; }
+.awards { padding: 0; margin: 0; list-style: none; }
+.awards li + li { margin-top: .72rem; }
+.awards time, .award-year { display: block; color: var(--muted); font-size: .84rem; }
+.awards li { font-size: .92rem; line-height: 1.44; }
+@media (max-width: 44rem) {
+  .columns { grid-template-columns: minmax(0, 1fr); }
+  .sidebar { border-left: 0; border-top: 1px solid var(--line); padding-inline: clamp(1.3rem, 5vw, 3.25rem); }
+}
+@media (max-width: 30rem) {
+  .shell { width: calc(100% - 24px); }
+  .toolbar { justify-content: space-between; gap: .4rem; padding-block: .55rem; }
+  .language-picker a, .print-button { padding-inline: .43rem; }
+  .print-button { text-align: center; max-width: 10rem; }
+}
+@media print {
+  @page { margin: 13mm; }
+  :root, body, .resume, .sidebar { color: #111; background: white; }
+  .shell { width: 100%; }
+  .toolbar { display: none; }
+  .resume { box-shadow: none; border: 0; margin: 0; }
+  .hero, .core, .sidebar { padding: 0; border: 0; }
+  .hero { padding-bottom: 1rem; border-bottom: 1px solid #aaa; }
+  .columns { display: block; }
+  .core, .sidebar { margin-top: 1rem; }
+  .sidebar { display: grid; grid-template-columns: 1fr 1fr 1.25fr; gap: 1rem; }
+  .sidebar .section + .section { margin-top: 0; }
+  .section + .section { margin-top: 1rem; }
+  h1 { font-size: 29pt; }
+  h2 { font-size: 12pt; margin-bottom: .5rem; break-after: avoid; }
+  h3, .detail { font-size: 10pt; }
+  .detail { line-height: 1.36; }
+  .entry, .sidebar .section { break-inside: avoid; }
+  .entry + .entry { margin-top: .74rem; }
+  a { color: #111; }
+}
+</style>
+<noscript><style>.toolbar { display: none; }</style></noscript>
 </head>
 <body>
-  <object data="./CV_Yuhang_Dong.pdf" type="application/pdf">
-    <p>
-      The browser cannot directly preview this PDF.
-      <a href="./CV_Yuhang_Dong.pdf">Click to open or download</a>
-    </p>
-  </object>
+<header class="toolbar shell">
+<nav class="language-picker" aria-label="Résumé language">
+<a href="?lang=en" lang="en" hreflang="en" data-switch="en">English</a>
+<a href="?lang=zh" lang="zh-CN" hreflang="zh-CN" data-switch="zh">中文</a>
+<a href="?lang=de" lang="de" hreflang="de" data-switch="de">Deutsch</a>
+</nav>
+<button class="print-button" type="button">Print CV</button>
+</header>
+<main class="shell">
+<article id="en" class="resume" data-language="en" lang="en"
+  data-title="Yuhang Dong | Curriculum Vitae" data-description="Curriculum vitae of Yuhang Dong, M.Sc. Data Science student at FAU. Education, research, work experience and selected projects."
+  data-nav="Résumé language" data-print="Print CV">
+<header class="hero">
+<h1>Yuhang Dong</h1>
+<p class="role">M.Sc. Data Science student at FAU</p>
+<p class="location">Nuremberg, Germany</p>
+<nav class="contact" aria-label="Contact"><a href="mailto:yuhang.dong@fau.de" aria-label="Email: yuhang.dong@fau.de">yuhang.dong@fau.de</a> <a href="https://github.com/SYadda">GitHub</a> <a href="https://www.linkedin.com/in/yuhang-dong-596050347/">LinkedIn</a></nav>
+</header>
+<div class="columns">
+<div class="core">
+<section class="section" aria-labelledby="en-education">
+<h2 id="en-education">Education</h2>
+<article class="entry">
+<div class="entry-header"><h3>M.Sc. Data Science</h3><span class="period">Oct 2024 – present</span></div>
+<p class="organization">Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)</p>
+<p class="detail">Expected completion in September 2027. Selected coursework: Advanced Deep Learning, Modern Natural Language Processing, and AI in Medical Robotics.</p>
+
+</article>
+<article class="entry">
+<div class="entry-header"><h3>B.Eng. Computer Science and Technology</h3><span class="period">Sep 2020 – Jul 2024</span></div>
+<p class="organization">Southern University of Science and Technology (SUSTech), Shenzhen</p>
+
+
+</article>
+<article class="entry">
+<div class="entry-header"><h3>Web Mining Summer Workshop</h3><span class="period">May – Jul 2023</span></div>
+<p class="organization">National University of Singapore, School of Computing</p>
+<p class="detail">Non-degree course. Grade A and third prize for the final presentation.</p>
+
+</article>
+</section>
+<section class="section" aria-labelledby="en-experience">
+<h2 id="en-experience">Work experience</h2>
+<article class="entry">
+<div class="entry-header"><h3>Technical &amp; Cultural Assistant</h3><span class="period">Apr 2026 – present</span></div>
+<p class="organization">Confucius Institute Nürnberg-Erlangen</p>
+<p class="detail">Maintain websites and IT systems, assist with the library database migration, and prepare equipment documentation.</p>
+<p class="detail">Built interactive Chinese-learning pages for German-speaking learners using HTML, CSS, JavaScript and generative AI. Exercises include pronunciation, vocabulary and dialogues.</p>
+
+</article>
+</section>
+<section class="section" aria-labelledby="en-research">
+<h2 id="en-research">Research &amp; publication</h2>
+<article class="entry">
+<div class="entry-header"><h3>Beyond Via</h3><span class="period">Sep 2025 – present</span></div>
+<p class="organization">Independent research collaboration</p>
+<p class="detail">Collected and analyzed data from academic papers at scale to study shifts in wording associated with large language models. Contributed to data modelling and mathematical formulation.</p>
+<p class="detail">Second author of “Beyond Via: Analysis and Estimation of the Impact of Large Language Models in Academic Papers” (arXiv preprint, 2026).</p>
+<div class="entry-links"><a href="https://arxiv.org/abs/2603.25638">arXiv preprint</a> <a href="https://llm-impact.github.io/">Project website</a></div>
+</article>
+</section>
+<section class="section" aria-labelledby="en-projects">
+<h2 id="en-projects">Selected projects</h2>
+<article class="entry">
+<div class="entry-header"><h3>CT Guidance Robot</h3><span class="period">Oct 2026</span></div>
+<p class="organization">Siemens Healthineers Robotics and AI Hackathon</p>
+<p class="detail">Built a Python/Pillow component that uses camera images to assess patient positioning on the CT table. The team reached the final.</p>
+<div class="entry-links"><a href="https://github.com/SYadda/CT_Guidance_Robot">Project repository</a></div>
+</article>
+<article class="entry">
+<div class="entry-header"><h3>Autonomous route planning</h3><span class="period">Jan – Apr 2025</span></div>
+<p class="organization">Formula Student Germany</p>
+<p class="detail">Reimplemented a genetic-algorithm route planner in Python and integrated it into ROS 2. Processed onboard camera data under a 100 ms real-time constraint.</p>
+
+</article>
+<article class="entry">
+<div class="entry-header"><h3>Out-of-distribution detection</h3></div>
+<p class="organization">FAU course project · NCI-OOD</p>
+<p class="detail">Reproduced an OOD detection method and used PyTorch/OpenOOD to evaluate feature-norm scores on image datasets with AUROC and FPR@95.</p>
+<div class="entry-links"><a href="https://github.com/SYadda/NCI-OOD/commit/d233dbb75dbae643a5744d9663dbbcd8835482f4">My contribution</a></div>
+</article>
+<article class="entry">
+<div class="entry-header"><h3>ArknightsVote</h3><span class="period">Aug 2023 – Aug 2025</span></div>
+<p class="organization">Open-source voting platform</p>
+<p class="detail">Designed the frontend and backend architecture, maintained the backend deployment and analyzed more than 10 million votes.</p>
+<div class="entry-links"><a href="https://github.com/ArknightsVote/ArknightsVote">Project repository</a></div>
+</article>
+<article class="entry">
+<div class="entry-header"><h3>Electric vehicle trajectory analysis</h3><span class="period">Jul 2022 – Jun 2024</span></div>
+<p class="organization">SUSTech</p>
+<p class="detail">Analyzed timestamped vehicle positions to identify points of interest and infer potential charging demand. Automated visualizations with Apache ECharts.</p>
+
+</article>
+</section>
+</div>
+<aside class="sidebar">
+<section class="section" aria-labelledby="en-skills">
+<h2 id="en-skills">Technical skills</h2>
+<dl>
+<div><dt>Programming</dt><dd>Python · Java · C++ · JavaScript · HTML/CSS</dd></div>
+<div><dt>Data &amp; ML</dt><dd>PyTorch · Pillow · PostgreSQL · Apache ECharts</dd></div>
+<div><dt>Tools</dt><dd>Git · Linux · ROS 2</dd></div>
+</dl>
+</section>
+<section class="section" aria-labelledby="en-languages">
+<h2 id="en-languages">Languages</h2>
+<dl>
+<div><dt>Chinese</dt><dd>Native</dd></div>
+<div><dt>English</dt><dd>Fluent</dd></div>
+<div><dt>German</dt><dd>Basic</dd></div>
+</dl>
+</section>
+<section class="section" aria-labelledby="en-awards">
+<h2 id="en-awards">Honors &amp; credentials</h2>
+<ul class="awards">
+<li><span class="award-year">2026</span>EELISA Credential · SDG 9, Impact Level 5/5</li>
+<li><span class="award-year">2024</span>Outstanding Student · SUSTech</li>
+<li><span class="award-year">2021, 2023</span>National Encouragement Scholarship · awarded twice</li>
+<li><span class="award-year">2021</span>Third prize · SUSTech Programming Competition</li>
+</ul>
+</section>
+</aside>
+</div>
+</article>
+<article id="zh" class="resume" data-language="zh" lang="zh-CN"
+  data-title="Yuhang Dong｜个人简历" data-description="Yuhang Dong 的个人简历，涵盖在 FAU 的数据科学学习、研究、工作经历及代表项目。"
+  data-nav="简历语言" data-print="打印简历">
+<header class="hero">
+<h1>Yuhang Dong</h1>
+<p class="role">FAU 数据科学硕士在读</p>
+<p class="location">德国纽伦堡</p>
+<nav class="contact" aria-label="联系方式"><a href="mailto:yuhang.dong@fau.de" aria-label="邮箱: yuhang.dong@fau.de">yuhang.dong@fau.de</a> <a href="https://github.com/SYadda">GitHub</a> <a href="https://www.linkedin.com/in/yuhang-dong-596050347/">LinkedIn</a></nav>
+</header>
+<div class="columns">
+<div class="core">
+<section class="section" aria-labelledby="zh-education">
+<h2 id="zh-education">教育经历</h2>
+<article class="entry">
+<div class="entry-header"><h3>数据科学硕士（M.Sc.）</h3><span class="period">2024 年 10 月至今</span></div>
+<p class="organization">埃尔朗根－纽伦堡大学（FAU）</p>
+<p class="detail">预计于 2027 年 9 月毕业。已修课程包括高级深度学习、现代自然语言处理和医疗机器人中的人工智能。</p>
+
+</article>
+<article class="entry">
+<div class="entry-header"><h3>计算机科学与技术工学学士（B.Eng.）</h3><span class="period">2020 年 9 月至 2024 年 7 月</span></div>
+<p class="organization">南方科技大学（SUSTech），深圳</p>
+
+
+</article>
+<article class="entry">
+<div class="entry-header"><h3>Web 挖掘暑期课程</h3><span class="period">2023 年 5 月至 7 月</span></div>
+<p class="organization">新加坡国立大学计算机学院</p>
+<p class="detail">非学位课程，成绩 A，结业答辩获三等奖。</p>
+
+</article>
+</section>
+<section class="section" aria-labelledby="zh-experience">
+<h2 id="zh-experience">工作经历</h2>
+<article class="entry">
+<div class="entry-header"><h3>技术与文化助理</h3><span class="period">2026 年 4 月至今</span></div>
+<p class="organization">纽伦堡－埃尔朗根孔子学院</p>
+<p class="detail">维护网站及 IT 系统，协助迁移图书馆管理数据库，并编写设备文档。</p>
+<p class="detail">用 HTML、CSS 和 JavaScript 制作面向德语学习者的交互式汉语学习网页，在开发中使用生成式 AI。网页包含发音、词汇和对话练习。</p>
+
+</article>
+</section>
+<section class="section" aria-labelledby="zh-research">
+<h2 id="zh-research">研究与论文</h2>
+<article class="entry">
+<div class="entry-header"><h3>Beyond Via</h3><span class="period">2025 年 9 月至今</span></div>
+<p class="organization">自主发起的研究合作</p>
+<p class="detail">收集并分析大规模学术论文数据，研究与大语言模型使用相关的用词变化，并参与数据建模和数学表述。</p>
+<p class="detail">预印本《Beyond Via: Analysis and Estimation of the Impact of Large Language Models in Academic Papers》第二作者（arXiv，2026 年）。</p>
+<div class="entry-links"><a href="https://arxiv.org/abs/2603.25638">arXiv 预印本</a> <a href="https://llm-impact.github.io/">项目网站</a></div>
+</article>
+</section>
+<section class="section" aria-labelledby="zh-projects">
+<h2 id="zh-projects">代表项目</h2>
+<article class="entry">
+<div class="entry-header"><h3>CT 检查辅助机器人</h3><span class="period">2026 年 10 月</span></div>
+<p class="organization">Siemens Healthineers 机器人与 AI 黑客松</p>
+<p class="detail">用 Python 和 Pillow 开发图像处理组件，根据相机图像评估 CT 检查床上的患者摆位。团队进入决赛。</p>
+<div class="entry-links"><a href="https://github.com/SYadda/CT_Guidance_Robot">项目代码</a></div>
+</article>
+<article class="entry">
+<div class="entry-header"><h3>无人驾驶路径规划</h3><span class="period">2025 年 1 月至 4 月</span></div>
+<p class="organization">Formula Student Germany</p>
+<p class="detail">用 Python 复现基于遗传算法的路径规划方法并集成至 ROS 2，在 100 ms 实时约束内处理车载相机数据。</p>
+
+</article>
+<article class="entry">
+<div class="entry-header"><h3>分布外检测</h3></div>
+<p class="organization">FAU 课程项目 · NCI-OOD</p>
+<p class="detail">复现分布外检测方法，使用 PyTorch 和 OpenOOD 分析图像特征范数，并以 AUROC 和 FPR@95 评估检测效果。</p>
+<div class="entry-links"><a href="https://github.com/SYadda/NCI-OOD/commit/d233dbb75dbae643a5744d9663dbbcd8835482f4">个人提交</a></div>
+</article>
+<article class="entry">
+<div class="entry-header"><h3>ArknightsVote</h3><span class="period">2023 年 8 月至 2025 年 8 月</span></div>
+<p class="organization">开源投票平台</p>
+<p class="detail">设计前后端架构，负责后端部署与维护，分析超过 1,000 万票。</p>
+<div class="entry-links"><a href="https://github.com/ArknightsVote/ArknightsVote">项目代码</a></div>
+</article>
+<article class="entry">
+<div class="entry-header"><h3>电动汽车轨迹分析</h3><span class="period">2022 年 7 月至 2024 年 6 月</span></div>
+<p class="organization">南方科技大学</p>
+<p class="detail">分析带时间戳的车辆位置，识别兴趣地点并推断潜在充电需求，使用 Apache ECharts 自动生成图表。</p>
+
+</article>
+</section>
+</div>
+<aside class="sidebar">
+<section class="section" aria-labelledby="zh-skills">
+<h2 id="zh-skills">技术技能</h2>
+<dl>
+<div><dt>编程</dt><dd>Python · Java · C++ · JavaScript · HTML/CSS</dd></div>
+<div><dt>数据与机器学习</dt><dd>PyTorch · Pillow · PostgreSQL · Apache ECharts</dd></div>
+<div><dt>工程工具</dt><dd>Git · Linux · ROS 2</dd></div>
+</dl>
+</section>
+<section class="section" aria-labelledby="zh-languages">
+<h2 id="zh-languages">语言</h2>
+<dl>
+<div><dt>中文</dt><dd>母语</dd></div>
+<div><dt>英语</dt><dd>流利</dd></div>
+<div><dt>德语</dt><dd>基础</dd></div>
+</dl>
+</section>
+<section class="section" aria-labelledby="zh-awards">
+<h2 id="zh-awards">荣誉与证书</h2>
+<ul class="awards">
+<li><span class="award-year">2026</span>EELISA 证书 · SDG 9，影响力等级 5/5</li>
+<li><span class="award-year">2024</span>优秀学生 · 南方科技大学</li>
+<li><span class="award-year">2021, 2023</span>国家励志奖学金 · 两次</li>
+<li><span class="award-year">2021</span>南方科技大学程序设计竞赛 · 三等奖</li>
+</ul>
+</section>
+</aside>
+</div>
+</article>
+<article id="de" class="resume" data-language="de" lang="de"
+  data-title="Yuhang Dong | Lebenslauf" data-description="Lebenslauf von Yuhang Dong, Masterstudent Data Science an der FAU, mit Studium, Forschung, Berufserfahrung und ausgewählten Projekten."
+  data-nav="Sprache des Lebenslaufs" data-print="Lebenslauf drucken">
+<header class="hero">
+<h1>Yuhang Dong</h1>
+<p class="role">Masterstudent Data Science an der FAU</p>
+<p class="location">Nürnberg, Deutschland</p>
+<nav class="contact" aria-label="Kontakt"><a href="mailto:yuhang.dong@fau.de" aria-label="E-Mail: yuhang.dong@fau.de">yuhang.dong@fau.de</a> <a href="https://github.com/SYadda">GitHub</a> <a href="https://www.linkedin.com/in/yuhang-dong-596050347/">LinkedIn</a></nav>
+</header>
+<div class="columns">
+<div class="core">
+<section class="section" aria-labelledby="de-education">
+<h2 id="de-education">Ausbildung</h2>
+<article class="entry">
+<div class="entry-header"><h3>M.Sc. Data Science</h3><span class="period">Okt. 2024 – heute</span></div>
+<p class="organization">Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)</p>
+<p class="detail">Voraussichtlicher Abschluss im September 2027. Ausgewählte Module: Advanced Deep Learning, Modern Natural Language Processing und AI in Medical Robotics.</p>
+
+</article>
+<article class="entry">
+<div class="entry-header"><h3>B.Eng. Computer Science and Technology</h3><span class="period">Sep. 2020 – Juli 2024</span></div>
+<p class="organization">Southern University of Science and Technology (SUSTech), Shenzhen</p>
+
+
+</article>
+<article class="entry">
+<div class="entry-header"><h3>Sommerkurs Web Mining</h3><span class="period">Mai – Juli 2023</span></div>
+<p class="organization">National University of Singapore, School of Computing</p>
+<p class="detail">Kurs ohne Studienabschluss. Note A und dritter Preis für die Abschlusspräsentation.</p>
+
+</article>
+</section>
+<section class="section" aria-labelledby="de-experience">
+<h2 id="de-experience">Berufserfahrung</h2>
+<article class="entry">
+<div class="entry-header"><h3>Technische und kulturelle Assistenz</h3><span class="period">Apr. 2026 – heute</span></div>
+<p class="organization">Konfuzius-Institut Nürnberg-Erlangen</p>
+<p class="detail">Betreue Webseiten und IT-Systeme, unterstütze die Migration der Bibliotheksdatenbank und erstelle Gerätedokumentation.</p>
+<p class="detail">Entwickelte mit HTML, CSS und JavaScript interaktive Chinesisch-Lernseiten für Deutschsprachige. Dabei setzte ich generative KI ein. Die Seiten bieten Übungen zu Aussprache, Wortschatz und Dialogen.</p>
+
+</article>
+</section>
+<section class="section" aria-labelledby="de-research">
+<h2 id="de-research">Forschung und Publikation</h2>
+<article class="entry">
+<div class="entry-header"><h3>Beyond Via</h3><span class="period">Sep. 2025 – heute</span></div>
+<p class="organization">Eigeninitiierte Forschungskooperation</p>
+<p class="detail">Erhob und analysierte umfangreiche Publikationsdaten, um Veränderungen im Sprachgebrauch im Zusammenhang mit großen Sprachmodellen zu untersuchen. Wirkte an der Datenmodellierung und mathematischen Formulierung mit.</p>
+<p class="detail">Zweitautor von „Beyond Via: Analysis and Estimation of the Impact of Large Language Models in Academic Papers“ (arXiv-Preprint, 2026).</p>
+<div class="entry-links"><a href="https://arxiv.org/abs/2603.25638">arXiv-Preprint</a> <a href="https://llm-impact.github.io/">Projektwebsite</a></div>
+</article>
+</section>
+<section class="section" aria-labelledby="de-projects">
+<h2 id="de-projects">Ausgewählte Projekte</h2>
+<article class="entry">
+<div class="entry-header"><h3>Assistenzroboter für CT-Untersuchungen</h3><span class="period">Okt. 2026</span></div>
+<p class="organization">Robotics and AI Hackathon von Siemens Healthineers</p>
+<p class="detail">Entwickelte mit Python und Pillow eine Komponente, die anhand von Kamerabildern die Patientenposition auf dem CT-Tisch prüft. Das Team erreichte die Finalrunde.</p>
+<div class="entry-links"><a href="https://github.com/SYadda/CT_Guidance_Robot">Projekt-Repository</a></div>
+</article>
+<article class="entry">
+<div class="entry-header"><h3>Autonome Routenplanung</h3><span class="period">Jan. – Apr. 2025</span></div>
+<p class="organization">Formula Student Germany</p>
+<p class="detail">Implementierte einen Routenplaner auf Basis eines genetischen Algorithmus in Python und integrierte ihn in ROS 2. Verarbeitete Kameradaten unter einer Echtzeitvorgabe von 100 ms.</p>
+
+</article>
+<article class="entry">
+<div class="entry-header"><h3>Out-of-Distribution-Erkennung</h3></div>
+<p class="organization">FAU-Studienprojekt · NCI-OOD</p>
+<p class="detail">Reproduzierte ein OOD-Erkennungsverfahren und bewertete Scores auf Basis von Merkmalsnormen mit PyTorch und OpenOOD anhand von AUROC und FPR@95.</p>
+<div class="entry-links"><a href="https://github.com/SYadda/NCI-OOD/commit/d233dbb75dbae643a5744d9663dbbcd8835482f4">Mein Beitrag</a></div>
+</article>
+<article class="entry">
+<div class="entry-header"><h3>ArknightsVote</h3><span class="period">Aug. 2023 – Aug. 2025</span></div>
+<p class="organization">Open-Source-Abstimmungsplattform</p>
+<p class="detail">Entwarf die Frontend- und Backend-Architektur, betreute den Backend-Betrieb und wertete mehr als zehn Millionen Stimmen aus.</p>
+<div class="entry-links"><a href="https://github.com/ArknightsVote/ArknightsVote">Projekt-Repository</a></div>
+</article>
+<article class="entry">
+<div class="entry-header"><h3>Trajektorienanalyse von Elektrofahrzeugen</h3><span class="period">Juli 2022 – Juni 2024</span></div>
+<p class="organization">SUSTech</p>
+<p class="detail">Analysierte Fahrzeugpositionen und Zeitstempel, um relevante Orte und potenziellen Ladebedarf abzuleiten. Automatisierte Visualisierungen mit Apache ECharts.</p>
+
+</article>
+</section>
+</div>
+<aside class="sidebar">
+<section class="section" aria-labelledby="de-skills">
+<h2 id="de-skills">Technische Kenntnisse</h2>
+<dl>
+<div><dt>Programmierung</dt><dd>Python · Java · C++ · JavaScript · HTML/CSS</dd></div>
+<div><dt>Daten und ML</dt><dd>PyTorch · Pillow · PostgreSQL · Apache ECharts</dd></div>
+<div><dt>Werkzeuge</dt><dd>Git · Linux · ROS 2</dd></div>
+</dl>
+</section>
+<section class="section" aria-labelledby="de-languages">
+<h2 id="de-languages">Sprachen</h2>
+<dl>
+<div><dt>Chinesisch</dt><dd>Muttersprache</dd></div>
+<div><dt>Englisch</dt><dd>Fließend</dd></div>
+<div><dt>Deutsch</dt><dd>Grundkenntnisse</dd></div>
+</dl>
+</section>
+<section class="section" aria-labelledby="de-awards">
+<h2 id="de-awards">Auszeichnungen und Nachweise</h2>
+<ul class="awards">
+<li><span class="award-year">2026</span>EELISA Credential · SDG 9, Impact Level 5/5</li>
+<li><span class="award-year">2024</span>Auszeichnung „Outstanding Student“ · SUSTech</li>
+<li><span class="award-year">2021, 2023</span>National Encouragement Scholarship · zweimal erhalten</li>
+<li><span class="award-year">2021</span>Dritter Preis · Programmierwettbewerb der SUSTech</li>
+</ul>
+</section>
+</aside>
+</div>
+</article>
+</main>
+<script>
+const languagePicker = document.querySelector('.language-picker');
+const links = [...languagePicker.querySelectorAll('[data-switch]')];
+const versions = [...document.querySelectorAll('[data-language]')];
+const printButton = document.querySelector('.print-button');
+const description = document.querySelector('meta[name="description"]');
+
+function showLanguage(requestedLanguage) {
+  const requested = versions.find(version => version.dataset.language === requestedLanguage);
+  const active = requested || versions[0];
+
+  for (const version of versions) {
+    version.hidden = version !== active;
+  }
+  for (const link of links) {
+    if (link.dataset.switch === active.dataset.language) {
+      link.setAttribute('aria-current', 'true');
+    } else {
+      link.removeAttribute('aria-current');
+    }
+  }
+
+  document.documentElement.lang = active.lang;
+  document.title = active.dataset.title;
+  description.content = active.dataset.description;
+  languagePicker.setAttribute('aria-label', active.dataset.nav);
+  printButton.textContent = active.dataset.print;
+}
+
+function showLanguageFromUrl() {
+  showLanguage(new URLSearchParams(window.location.search).get('lang'));
+}
+
+for (const link of links) {
+  link.addEventListener('click', event => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    if (link.getAttribute('aria-current') === 'true') return;
+    window.history.pushState(null, '', link.href);
+    showLanguageFromUrl();
+  });
+}
+printButton.addEventListener('click', () => window.print());
+window.addEventListener('popstate', showLanguageFromUrl);
+showLanguageFromUrl();
+</script>
 </body>
 </html>
